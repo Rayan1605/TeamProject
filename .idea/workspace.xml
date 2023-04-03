@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77a66cb3-3197-4346-a792-5048fe32fb53" name="Changes" comment="Start">
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestingDbConnection/TestingtheConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/junit-platform.properties" afterDir="false" />
+    <list default="true" id="77a66cb3-3197-4346-a792-5048fe32fb53" name="Changes" comment="Making the Connection(WITH  test )">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Id/Id.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dbconnection/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dbconnection/DatabaseConnections.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="MakingtheConnection" />
+        <entry key="$PROJECT_DIR$" value="TestingtheDbConnection" />
       </map>
     </option>
   </component>
@@ -51,7 +49,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Java spring/JDBC/Lib/mysql-connector-j-8.0.32.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Java spring/SpringSecruityFirst&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -112,6 +110,9 @@
       <option name="presentableId" value="Default" />
       <updated>1680022925652</updated>
       <workItem from="1680022926839" duration="4273000" />
+      <workItem from="1680116742717" duration="694000" />
+      <workItem from="1680222881746" duration="28000" />
+      <workItem from="1680488691063" duration="3472000" />
     </task>
     <task id="LOCAL-00001" summary="Start">
       <created>1680024279676</created>
@@ -120,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680024279676</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Making the Connection(WITH  test )">
+      <created>1680036019136</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680036019136</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +136,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Start" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start" />
+    <MESSAGE value="Making the Connection(WITH  test )" />
+    <option name="LAST_COMMIT_MESSAGE" value="Making the Connection(WITH  test )" />
   </component>
 </project>
