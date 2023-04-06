@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77a66cb3-3197-4346-a792-5048fe32fb53" name="Changes" comment="Making the Connection(WITH  test )">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Id/Id.java" afterDir="false" />
+    <list default="true" id="77a66cb3-3197-4346-a792-5048fe32fb53" name="Changes" comment="AddingtheIdclass">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Id/Id.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Id/Id.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +112,10 @@
       <workItem from="1680022926839" duration="4273000" />
       <workItem from="1680116742717" duration="694000" />
       <workItem from="1680222881746" duration="28000" />
-      <workItem from="1680488691063" duration="3472000" />
+      <workItem from="1680488691063" duration="5055000" />
+      <workItem from="1680737691302" duration="977000" />
+      <workItem from="1680738679783" duration="248000" />
+      <workItem from="1680740364199" duration="850000" />
     </task>
     <task id="LOCAL-00001" summary="Start">
       <created>1680024279676</created>
@@ -128,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680036019136</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="AddingtheIdclass">
+      <created>1680492342143</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680492342143</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,6 +147,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Start" />
     <MESSAGE value="Making the Connection(WITH  test )" />
-    <option name="LAST_COMMIT_MESSAGE" value="Making the Connection(WITH  test )" />
+    <MESSAGE value="AddingtheIdclass" />
+    <option name="LAST_COMMIT_MESSAGE" value="AddingtheIdclass" />
   </component>
 </project>

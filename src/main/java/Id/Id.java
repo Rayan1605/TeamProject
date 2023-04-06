@@ -45,6 +45,7 @@ public class Id {
            this.id.add(id);
            return true;
        }
+       //I would like to create a custom exception here but we can do that later
         System.out.println("The id is already there");
        return false;
     }
@@ -83,10 +84,7 @@ public class Id {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-   return false;
-
-
-
+              return false;
     }
 
     private boolean IsIdExist(String table,int identity) throws SQLException {
