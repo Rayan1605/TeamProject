@@ -29,7 +29,7 @@ public class DatabaseConnections {
             Class.forName("com.mysql.cj.jdbc.Driver"); // getting the driver
             // creating the connection with the database
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/Password?useSSL=false"
+                    "jdbc:mysql://localhost:3306/userdetails?useSSL=false"
                     ,"root"
                     ,"Password");
 

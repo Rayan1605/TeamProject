@@ -69,10 +69,12 @@ public class Id {
             return false;
         }
     }
-
-    public List<Integer> allId() {
-        return id;
+    public  void voidPrintallId(){
+        for (int a : id) {
+            System.out.println(a);
+        }
     }
+
     // In one table - rayan - id 4 - we wanted to remove it from the list
     //
     //in the other one we imported rayan so now two tables have an id  4
