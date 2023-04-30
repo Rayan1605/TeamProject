@@ -16,7 +16,6 @@ public class Main {
     public static void main(String[] args) {
         boolean exitApplicaton = false;
         System.out.println("Welcome to Dental Clinic!\n");
-        int ch = databasetoEnter() - 1;
 
         do {
             //Delaying the message
