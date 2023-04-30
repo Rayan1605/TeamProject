@@ -16,7 +16,7 @@ public class DataBaseCrudOperation extends Id implements DatabaseInterface  {
     @Override
     public boolean createPatient(PatientClass patient,String DatabaseName) {
         con= DatabaseConnections.createconnectiontoTeethTreatment();
-        String query="insert into " + DatabaseName + " values: ";
+        String query="insert into " + DatabaseName + " values (?,?,?,?,?,?,?)";
         try{
             PreparedStatement pst=con.prepareStatement(query);
             pst.setInt( 1, patient.getID());
@@ -168,19 +168,24 @@ public class DataBaseCrudOperation extends Id implements DatabaseInterface  {
         try {
             statement = con.prepareStatement("SELECT Password FROM " + DatabaseName);
             ResultSet resultSet = statement.executeQuery();
-           return resultSet.getString(1);
+            if (resultSet.next()) {
+                return resultSet.getString("Password");
+            } else {
+                return "";
+            }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            return "";
         }
     }
 
     @Override
     public void SetPassword(String password , String DatabaseName){
       con = DatabaseConnections.CreatetoConnectionTouserdetails();
-        String query = "update " + DatabaseName;
+        String query = "INSERT INTO " + DatabaseName + " (password) VALUES (?)";
         try {
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1,password);
+            ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

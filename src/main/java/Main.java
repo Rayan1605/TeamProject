@@ -11,13 +11,12 @@ public class Main {
     static String[] tables = {"orthodontistclinic", "dentaldepartment"};
     static DatabaseInterface implement = new DataBaseCrudOperation();
    static String DatabaseName;
+   static int count = 0;
 
     public static void main(String[] args) {
         boolean exitApplicaton = false;
         System.out.println("Welcome to Dental Clinic!\n");
         int ch = databasetoEnter() - 1;
-        DatabaseName = tables[ch]; // getting the database they want to enter
-        System.out.println("You have entered the " + tables[ch] + " department\n");
 
         do {
             //Delaying the message
@@ -44,44 +43,88 @@ public class Main {
 //This is Secruity where each database has a password and is needed to type in
     //However code need improvement we are currently using multiple tables
     // and we should change it to one table and that consist of all the password
-    public static void VerifyDetails(String DatabaseName){
-        int count = 0;
+    public static void VerifyDetails(){
+
+        if (implement.GetPassword(DatabaseName).equals("")) {
+            implement.SetPassword(WritePassword(), DatabaseName);
+            System.out.println("You have successfully Added a Password\n");
+        }
+
         System.out.println();
-        System.out.println("Please enter the password to enter the database for " +
-                DatabaseName + "\n");
-        String password = myInput.nextLine();
-        while (count < 3) {
+        System.out.println("To access the " + DatabaseName + " database, please enter the password \n");
+        System.out.println("Enter Here -> ");
+        String password = myInput.next();
             //Checking the Password
+
             if (Objects.equals(password, implement.GetPassword(DatabaseName))) {
-                System.out.println("You have successfully logged in ");
-                break;
-            } else {
+                System.out.println("\n");
+                System.out.println("You have successfully logged in the  " + DatabaseName + " database\n");
+            }
+             else {
+                //If typed wrong 3 more time then the application closes
+                if (count ==3) {
+                    System.out.println("You have entered the wrong password 3 times\n");
+                    System.out.println("Please try again later\n");
+                    System.exit(0);
+                }
                 System.out.println("Wrong password entered\n");
                 System.out.println("Please try again -> You currently have \n" + (3 - count) + " more tries");
                 count++;
+                VerifyDetails(); //using Recursion
             }
-        }
-        //If typed wrong 3 more time then the application closes
-        if (count ==3) {
-            System.out.println("You have entered the wrong password 3 times\n");
-            System.out.println("Please try again later\n");
-            System.exit(0);
+
+
+    }
+
+    private static String WritePassword() {
+        System.out.println("Please enter the password you want to set\n");
+        String password = myInput.next();
+        if (CheckPasswordStrength(password)) {
+            return password;
+        } else {
+            System.out.println("Please enter a stronger password\n");
+            return WritePassword();
         }
     }
+
+    private static boolean CheckPasswordStrength(String Password) {
+        int count = 0;
+        for (Character a : Password.toCharArray()) {
+            if (Character.isUpperCase(a)) {
+                count++;
+            }
+           else if (Character.isLowerCase(a)) {
+                count++;
+            }
+            else if (Character.isDigit(a)) {
+                count++;
+            }
+
+        }
+if (count <=2){
+    return false;
+}
+     return true;
+    }
+
+
 
     public static int databasetoEnter() {
         // using Database create a password  identification system
         System.out.println("Which database do you want to enter\n");
         System.out.println("1. Orthodontist Clinic\n");
         System.out.println("2. Dental Department\n");
+        System.out.println("Please enter the number here -> ");
         int ch = myInput.nextInt();
+        DatabaseName = tables[ch - 1];
         switch (ch) {
             case 1 -> {
-               VerifyDetails(tables[ch - 1]); // checkingthePassword
+
+               VerifyDetails(); // checkingthePassword
                 return 1;//if it work then return 1 this is the database they want to enter
             }
             case 2 -> {
-                VerifyDetails(tables[ch - 1]);
+                VerifyDetails();
                 return 2;
             }
             default -> {
@@ -103,7 +146,7 @@ public class Main {
         System.out.println("3. Show Patient by Id\n");
         System.out.println("4. Update Patient\n");
         System.out.println("5. Delete Patient\n");
-        System.out.println("6. Change Application\n");
+        System.out.println("6. Change Database\n");
         System.out.println("7. Exit Application\n");
         System.out.println(" Please enter your choice\n");
         int CrudOption = myInput.nextInt();
@@ -129,12 +172,20 @@ public class Main {
         pat.setDateOfTreatment( myInput.next());
         System.out.println("Enter Age: ");
         pat.setAge(myInput.nextInt());
-        System.out.println("Is Special Needs?: ");
+        System.out.println("Is Special Needs?: true or false ");
         pat.setNeedspecialNeeds(myInput.nextBoolean());
         System.out.println("Enter Treatment Type: ");
         pat.setTypeOfTreatment( myInput.next());
 
-        implement.createPatient(pat, DatabaseName);
+       boolean check =  implement.createPatient(pat, DatabaseName);
+       Id id = new Id();
+       id.voidPrintallId();
+        if (check){
+            System.out.println("It been added Successfully\n");
+        }
+        else {
+            System.out.println("It has not been added Successfully\n");
+        }
 
     }
     public static void showAllPatient(){

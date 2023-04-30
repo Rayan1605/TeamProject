@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77a66cb3-3197-4346-a792-5048fe32fb53" name="Changes" comment="all methods but update">
+    <list default="true" id="77a66cb3-3197-4346-a792-5048fe32fb53" name="Changes" comment="Fixing up some bits of the  Project">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DataBaseImplement/DataBaseCrudOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBaseImplement/DataBaseCrudOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBaseImplement/DatabaseInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBaseImplement/DatabaseInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dbconnection/DatabaseConnections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dbconnection/DatabaseConnections.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Id/Id.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Id/Id.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Patient/PatientClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Patient/PatientClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestingDbConnection/TestingtheConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestingDbConnection/TestingtheConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,30 +41,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Java spring/JDBC/Lib/mysql-connector-j-8.0.32.jar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Java spring/JDBC/Lib/mysql-connector-j-8.0.32.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="OrthodontistClinic" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestingtheConnection">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="TeamProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="JdbcProjectforschool" />
@@ -84,6 +91,38 @@
       <option name="PACKAGE_NAME" value="TestingPatient" />
       <option name="MAIN_CLASS_NAME" value="TestingPatient.Patienttesting" />
       <option name="METHOD_NAME" value="Set" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Patienttesting.Set" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JdbcProjectforschool" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestingPatient.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestingPatient" />
+      <option name="MAIN_CLASS_NAME" value="TestingPatient.Patienttesting" />
+      <option name="METHOD_NAME" value="Set" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestingConnection.testCreateConnection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JdbcProjectforschool" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestingDbConnection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestingDbConnection" />
+      <option name="MAIN_CLASS_NAME" value="TestingDbConnection.TestingConnection" />
+      <option name="METHOD_NAME" value="testCreateConnection" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -121,6 +160,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestingtheConnection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JdbcProjectforschool" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestingDbConnection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestingDbConnection" />
+      <option name="MAIN_CLASS_NAME" value="TestingDbConnection.TestingtheConnection" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestingtheConnection.testCreateConnectiontoOrtho (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TeamProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestingDbConnection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestingDbConnection" />
+      <option name="MAIN_CLASS_NAME" value="TestingDbConnection.TestingtheConnection" />
+      <option name="METHOD_NAME" value="testCreateConnectiontoOrtho" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestingtheConnection.testCreateConnectiontoOrtho" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JdbcProjectforschool" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestingDbConnection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestingDbConnection" />
+      <option name="MAIN_CLASS_NAME" value="TestingDbConnection.TestingtheConnection" />
+      <option name="METHOD_NAME" value="testCreateConnectiontoOrtho" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestingtheConnection.testCreateConnectiontoOrtho" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JdbcProjectforschool" />
       <extension name="coverage">
@@ -138,7 +225,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.TestingtheConnection.testCreateConnectiontoOrtho (1)" />
       <item itemvalue="JUnit.Patienttesting.Set" />
       <item itemvalue="JUnit.TestingtheConnection.testCreateConnectiontoOrtho" />
       <item itemvalue="JUnit.TestingConnection.testCreateConnection" />
@@ -146,11 +234,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestingtheConnection.testCreateConnectiontoOrtho (1)" />
         <item itemvalue="JUnit.TestingtheConnection" />
         <item itemvalue="JUnit.TestingConnection.testCreateConnection" />
         <item itemvalue="JUnit.TestingtheConnection.testCreateConnectiontoOrtho" />
         <item itemvalue="JUnit.Patienttesting.Set" />
-        <item itemvalue="JUnit.TestingtheConnection" />
       </list>
     </recent_temporary>
   </component>
@@ -282,6 +370,8 @@
     <MESSAGE value="adding static method" />
     <MESSAGE value="adding db name" />
     <MESSAGE value="all methods but update" />
-    <option name="LAST_COMMIT_MESSAGE" value="all methods but update" />
+    <MESSAGE value="Fixing up the Project" />
+    <MESSAGE value="Fixing up some bits of the  Project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing up some bits of the  Project" />
   </component>
 </project>
