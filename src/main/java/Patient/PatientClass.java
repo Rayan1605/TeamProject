@@ -9,7 +9,6 @@ public class PatientClass extends Id {
     private String dateOfTreatment;
 
     private int age;
-    private String allergies;
     private boolean needspecialNeeds;
     private String typeOfTreatment;
 
@@ -65,14 +64,6 @@ public class PatientClass extends Id {
         this.age = age;
     }
 
-    public String getAllergies() {
-        return allergies;
-    }
-
-    public void setAllergies(String allergies) {
-        this.allergies = allergies;
-    }
-
     public boolean getSpecialNeeds() {
         return needspecialNeeds;
     }
@@ -98,7 +89,6 @@ public class PatientClass extends Id {
                 ", dateOfBirthday='" + dateOfBirthday + '\'' +
                 ", dateOfTreatment='" + dateOfTreatment + '\'' +
                 ", age=" + age +
-                ", allergies='" + allergies + '\'' +
                 ", specialNeeds=" + needspecialNeeds +
                 ", typeOfTreatment='" + typeOfTreatment + '\'';
     }

@@ -13,7 +13,6 @@ public class Patienttesting {
         patient.setDateOfBirthday("01/01/2000");
         patient.setDateOfTreatment("01/01/2020");
         patient.setAge(20);
-        patient.setAllergies("None");
         patient.setSpecialNeeds(true);
         patient.setTypeOfTreatment("Filling");
 
@@ -22,7 +21,6 @@ public class Patienttesting {
         assertEquals("01/01/2000", patient.getDateOfBirthday());
         assertEquals("01/01/2020", patient.getDateOfTreatment());
         assertEquals(20, patient.getAge());
-        assertEquals("None", patient.getAllergies());
         assertEquals(true, patient.getSpecialNeeds());
         assertEquals("Filling", patient.getTypeOfTreatment());
 

@@ -3,6 +3,7 @@ import DataBaseImplement.DatabaseInterface;
 import Id.Id;
 import Patient.PatientClass;
 
+import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -12,20 +13,16 @@ public class Main {
     static DatabaseInterface implement = new DataBaseCrudOperation();
    static String DatabaseName;
    static int count = 0;
-
+  static   Id id = new Id();
     public static void main(String[] args) {
         boolean exitApplicaton = false;
         System.out.println("Welcome to Dental Clinic!\n");
-        int ch = databasetoEnter() - 1;
+         databasetoEnter();
+
 
         do {
             //Delaying the message
-            try {
-                long secondsToSleep = 2;
-                Thread.sleep(secondsToSleep * 500);
-            } catch (InterruptedException ie) {
-                Thread.currentThread().interrupt();
-            }
+         // DelayTimer(2000);
             int CrudNumber = CrudOption();
 
             switch (CrudNumber) {
@@ -35,9 +32,25 @@ public class Main {
                 case 4 -> updatePatient();
                 case 5 -> deletePatient();
                 case 6 -> main(args);
-                case 7 -> exitApplicaton = true;
+                case 7 -> {
+                    System.out.println("Thank you for using the application\n");
+                    System.out.println("The application will now close\n");
+                    exitApplicaton = true;
+                }
             }
+
         } while (!exitApplicaton) ;
+
+
+    }
+
+   public static void DelayTimer  (int num){
+
+       try {
+           Thread.sleep(num);
+       } catch (InterruptedException ie) {
+           Thread.currentThread().interrupt();
+       }
 
     }
 //This is Secruity where each database has a password and is needed to type in
@@ -61,14 +74,16 @@ public class Main {
                 System.out.println("You have successfully logged in the  " + DatabaseName + " database\n");
             }
              else {
+
                 //If typed wrong 3 more time then the application closes
                 if (count ==3) {
-                    System.out.println("You have entered the wrong password 3 times\n");
+                    System.out.println("You have entered the wrong password 3 times");
                     System.out.println("Please try again later\n");
                     System.exit(0);
                 }
-                System.out.println("Wrong password entered\n");
+                System.out.println("Wrong password entered");
                 System.out.println("Please try again -> You currently have \n" + (3 - count) + " more tries");
+                DelayTimer(2000);
                 count++;
                 VerifyDetails(); //using Recursion
             }
@@ -101,31 +116,33 @@ public class Main {
             }
 
         }
-if (count <=2){
-    return false;
-}
-     return true;
+        return count > 2;
     }
 
 
 
-    public static int databasetoEnter() {
+    public static void databasetoEnter() {
+        int ch = 0;
         // using Database create a password  identification system
         System.out.println("Which database do you want to enter\n");
         System.out.println("1. Orthodontist Clinic\n");
         System.out.println("2. Dental Department\n");
         System.out.println("Please enter the number here -> ");
-        int ch = myInput.nextInt();
+        try {
+
+
+             ch = myInput.nextInt();
+        }catch (InputMismatchException e){
+            System.out.println("Please enter a valid number | 1 | 2\n");
+            System.out.println("1. Orthodontist Clinic\n");
+            System.out.println("2. Dental Department\n");
+            databasetoEnter();
+        }
         DatabaseName = tables[ch - 1];
         switch (ch) {
-            case 1 -> {
+            case 1, 2 -> {
 
                VerifyDetails(); // checkingthePassword
-                return 1;//if it work then return 1 this is the database they want to enter
-            }
-            case 2 -> {
-                VerifyDetails();
-                return 2;
             }
             default -> {
                 //We are heavely using recursion which is calling the method again withen a method
@@ -133,22 +150,32 @@ if (count <=2){
                 System.out.println("Please enter a valid number | 1 | 2\n");
                 System.out.println("1. Orthodontist Clinic\n");
                 System.out.println("2. Dental Department\n");
-                return databasetoEnter();
+                 databasetoEnter();
             }
         }
     }
 
 //Finding the options and again using Recursion
     public static int CrudOption() {
+        System.out.println("The options are as follows\n");
+        DelayTimer(300);
         System.out.println();
         System.out.println("1. Create Patient\n");
+        DelayTimer(600);
         System.out.println("2. Show All Patient\n");
+        DelayTimer(600);
         System.out.println("3. Show Patient by Id\n");
+        DelayTimer(600);
         System.out.println("4. Update Patient\n");
+        DelayTimer(600);
         System.out.println("5. Delete Patient\n");
+        DelayTimer(600);
         System.out.println("6. Change Database\n");
+        DelayTimer(600);
         System.out.println("7. Exit Application\n");
+        DelayTimer(600);
         System.out.println(" Please enter your choice\n");
+        DelayTimer(600);
         int CrudOption = myInput.nextInt();
         if (CrudOption > 0 && CrudOption <= 7) {
             return CrudOption;
@@ -177,19 +204,18 @@ if (count <=2){
         System.out.println("Enter Treatment Type: ");
         pat.setTypeOfTreatment( myInput.next());
 
-       boolean check =  implement.createPatient(pat, DatabaseName);
-       Id id = new Id();
-       id.voidPrintallId();
+        boolean check = implement.createPatient(pat, DatabaseName);
         if (check){
             System.out.println("It been added Successfully\n");
         }
         else {
-            System.out.println("It has not been added Successfully\n");
+            System.out.println("Therefore it has not been added Successfully\n");
         }
 
     }
     public static void showAllPatient(){
         implement.showAllPatient(DatabaseName);
+        DelayTimer(2000);
     }
 
     public static void showPatientById(){
@@ -203,6 +229,7 @@ if (count <=2){
         int counter = 1;
         for(String option : updateOptions){
             System.out.println(counter + ". " +  option);
+            counter++;
         }
         System.out.println("Please Enter: ");
         int input = myInput.nextInt();
@@ -216,17 +243,17 @@ if (count <=2){
         }
 
     public static void updatePatient(){
-        Id id = new Id();
         System.out.println("Enter the ID of the Patient you would like to change : ");
         int idToUpdate = myInput.nextInt();
-        if (!id.checkifIdisthere(idToUpdate)){
+        if (!id.DoesIdExistInTable(DatabaseName, idToUpdate)){
+            if (count == 3){
+                System.out.println("You have exceeded the number of tries");
+                System.out.println("Please try again later");
+                System.exit(0);
+            }
             System.out.println("The ID you have entered does not exist in the database");
             System.out.println("Please enter a valid ID");
-            updatePatient();
-        }
-        if (!id.DoesIdExistInTable(DatabaseName, idToUpdate)) {
-            System.out.println("The ID you have entered does not exist in the database");
-            System.out.println("Please enter a valid ID");
+            System.out.println("You have " + (3 - count) + " tries left");
             updatePatient();
         }
         String[] updateOptions = {"DateofBirth", "DateofTreatment",
@@ -235,23 +262,23 @@ if (count <=2){
         switch (updateOption) {
             case 0 -> {
                 System.out.println("Enter DateOfBirth: ");
-                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), WhichOptiontoUpdate(updateOptions) + 2, DatabaseName);
+                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 3, DatabaseName);
             }
             case 1 -> {
                 System.out.println("Enter DateOfTreatment: ");
-                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), WhichOptiontoUpdate(updateOptions) + 2, DatabaseName);
+                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 4, DatabaseName);
             }
             case 2 -> {
                 System.out.println("Enter Age: ");
-                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), WhichOptiontoUpdate(updateOptions) + 2, DatabaseName);
+                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 5, DatabaseName);
             }
             case 3 -> {
                 System.out.println("Enter  if you require NeedSpecialNeed: true or false: ");
-                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), WhichOptiontoUpdate(updateOptions) + 2, DatabaseName);
+                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 6, DatabaseName);
             }
             case 4 -> {
                 System.out.println("Enter  the TypeOfTreatment: ");
-                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), WhichOptiontoUpdate(updateOptions) + 2, DatabaseName);
+                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 7, DatabaseName);
             }
             default -> System.out.println("ERROR!");
         }
@@ -262,7 +289,7 @@ if (count <=2){
     public static void deletePatient(){
         System.out.println("Enter ID: ");
         int id = myInput.nextInt();
-        implement.deletePatient(id, DatabaseName);
+        implement.deletePatient(id, DatabaseName,tables);
     }
 
 }
