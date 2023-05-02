@@ -27,7 +27,7 @@ public class DataBaseCrudOperation extends Id implements DatabaseInterface  {
                System.out.println("Enter here -> ");
               choice = myinput.nextInt();
                if (choice == 1 ){
-            //  patient  = ImportPatient(patient.getID());
+             patient  = ImportPatient(patient.getID());
                }
               else if (choice == 2){
                    System.out.println("Please try again later");
@@ -57,7 +57,55 @@ public class DataBaseCrudOperation extends Id implements DatabaseInterface  {
             return false;
         }
     }
+    private PatientClass ImportPatient(int id) {
+        Scanner myinput = new Scanner(System.in);
+        System.out.println("Please enter the database name in which the patient is stored");
+        String[] tables = {"orthodontistclinic", "dentaldepartment"};
+        for (String names: tables) {
+            System.out.println("the names are " + names);
+        }
+        String DatabaseName = myinput.nextLine();
+        con = DatabaseConnections.createconnectiontoTeethTreatment();
+        for (String table: tables) {
+            if (table.equals(DatabaseName)) {
+                try {
 
+                    String query = "SELECT * FROM " + DatabaseName + " where id = ?";
+                    PreparedStatement statement = con.prepareStatement(query);
+                    statement.setInt(1, id);
+                    ResultSet result = statement.executeQuery();
+                    if (result.next()) {
+                        PatientClass patientClass = new PatientClass();
+                        patientClass.setID(result.getInt(1));
+                        patientClass.setName(result.getString(2));
+                        patientClass.setDateOfBirthday(result.getString(3));
+                        patientClass.setAge(result.getInt(5));
+                        patientClass.setNeedspecialNeeds(result.getBoolean(6));
+                        return GetRemainingDetail(patientClass);
+                    }else{
+                        System.out.println("The patient is not in the database");
+                    }
+                }catch (Exception e){
+                    System.out.println("The patient is not in the database");
+                }
+                break;
+            }
+        }
+        return null;
+    }
+
+    private PatientClass GetRemainingDetail(PatientClass patientClass) {
+        System.out.println("Please enter the Patient Treatment Date\n");
+        Scanner myinput = new Scanner(System.in);
+        System.out.println("Enter here -> ");
+        String date = myinput.nextLine();
+        patientClass.setDateOfTreatment(date);
+        System.out.println("Please enter the Patient Treatment Type\n");
+        System.out.println("Enter here -> ");
+        String type = myinput.nextLine();
+        patientClass.setTypeOfTreatment(type);
+        return patientClass;
+    }
 
 
 
