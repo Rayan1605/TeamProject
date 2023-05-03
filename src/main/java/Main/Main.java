@@ -1,11 +1,12 @@
+package Main;
+
 import DataBaseImplement.DataBaseCrudOperation;
 import DataBaseImplement.DatabaseInterface;
 import Id.Id;
 import Patient.PatientClass;
 
-import java.util.InputMismatchException;
-import java.util.Objects;
-import java.util.Scanner;
+import java.security.spec.RSAOtherPrimeInfo;
+import java.util.*;
 
 public class Main {
     static Scanner myInput = new Scanner(System.in);
@@ -16,13 +17,14 @@ public class Main {
   static   Id id = new Id();
     public static void main(String[] args) {
         boolean exitApplicaton = false;
+        id.GettingTheId();
         System.out.println("Welcome to Dental Clinic!\n");
          databasetoEnter();
 
 
         do {
             //Delaying the message
-         // DelayTimer(2000);
+         DelayTimer(2000);
             int CrudNumber = CrudOption();
 
             switch (CrudNumber) {
@@ -104,17 +106,32 @@ public class Main {
 
     private static boolean CheckPasswordStrength(String Password) {
         int count = 0;
+        List<String> specialChar = Arrays.asList("!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+");
+        boolean checkList [] = new boolean[3];
         for (Character a : Password.toCharArray()) {
             if (Character.isUpperCase(a)) {
-                count++;
+                checkList[0] = true;
             }
            else if (Character.isLowerCase(a)) {
-                count++;
+                checkList[1] = true;
             }
             else if (Character.isDigit(a)) {
-                count++;
+                checkList[2] = true;
+            }
+            else {
+                for (String s : specialChar) {
+                    if (a.toString().equals(s)) {
+                        checkList[3] = true;
+                    }
+                }
+
             }
 
+        }
+        for (boolean b : checkList) {
+            if (b) {
+                count++;
+            }
         }
         return count > 2;
     }
@@ -174,7 +191,8 @@ public class Main {
         DelayTimer(600);
         System.out.println("7. Exit Application\n");
         DelayTimer(600);
-        System.out.println(" Please enter your choice\n");
+        System.out.println(" Please enter your choice below\n");
+        System.out.println("Enter Here -> ");
         DelayTimer(600);
         int CrudOption = myInput.nextInt();
         if (CrudOption > 0 && CrudOption <= 7) {
@@ -191,16 +209,22 @@ public class Main {
         PatientClass pat = new PatientClass();
         System.out.println("Enter ID: ");
         pat.setID(myInput.nextInt());
-        System.out.println("Enter Name: ");
-        pat.setName( myInput.next());
+        System.out.println("Enter First Name: ");
+        pat.setFirstname( myInput.next());
+        System.out.println("Enter Last Name: ");
+        pat.setLastName( myInput.next());
+        System.out.println("Enter email");
+        pat.setEmail( myInput.next());
+        System.out.println("Enter Phone Number: ");
+        pat.setPhoneNumber( myInput.nextInt());
         System.out.println("Enter DOB: ");
         pat.setDateOfBirthday( myInput.next());
         System.out.println("Enter Treatment Date: ");
         pat.setDateOfTreatment( myInput.next());
-        System.out.println("Enter Age: ");
-        pat.setAge(myInput.nextInt());
+        System.out.println("Enter Address: ");
+        pat.setAddress(myInput.next());
         System.out.println("Is Special Needs?: true or false ");
-        pat.setNeedspecialNeeds(myInput.nextBoolean());
+         pat.setNeedspecialNeeds(CheckIfItBoolean(myInput.next()));
         System.out.println("Enter Treatment Type: ");
         pat.setTypeOfTreatment( myInput.next());
 
@@ -213,6 +237,21 @@ public class Main {
         }
 
     }
+
+    private static boolean CheckIfItBoolean(String nextBoolean) {
+        if(nextBoolean.equalsIgnoreCase("true")){
+            return true;
+        }
+        else if(nextBoolean.equalsIgnoreCase("false")){
+            return false;
+        }
+        else{
+            System.out.println("Please enter a valid boolean value -> true or false\n");
+            CheckIfItBoolean(nextBoolean);
+        }
+        return false;
+    }
+
     public static void showAllPatient(){
         implement.showAllPatient(DatabaseName);
         DelayTimer(2000);
@@ -233,11 +272,11 @@ public class Main {
         }
         System.out.println("Please Enter: ");
         int input = myInput.nextInt();
-        if(input > 0 && input <= 5){
+        if(input > 0 && input <= 7){
             return input;
     }
         else{
-            System.out.println("Please enter a valid number | 1 | 2 | 3 | 4 | 5 \n");
+            System.out.println("Please enter a valid number | 1 | 2 | 3 | 4 | 5| 6 | 7 \n");
             return WhichOptiontoUpdate(updateOptions);
         }
         }
@@ -256,29 +295,38 @@ public class Main {
             System.out.println("You have " + (3 - count) + " tries left");
             updatePatient();
         }
-        String[] updateOptions = {"DateofBirth", "DateofTreatment",
-                "Age", "NeedSpecialNeeds", "TypeOfTreatment"};
+        String[] updateOptions = {"DateofBirth", "DateofTreatment"
+                , "Address", "NeedSpecialNeeds", "TypeOfTreatment,", "PhoneNumber","Email", };
          int updateOption = WhichOptiontoUpdate(updateOptions) - 1;
         switch (updateOption) {
             case 0 -> {
                 System.out.println("Enter DateOfBirth: ");
-                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 3, DatabaseName);
+                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 4, DatabaseName);
             }
             case 1 -> {
                 System.out.println("Enter DateOfTreatment: ");
-                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 4, DatabaseName);
+                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 5, DatabaseName);
             }
             case 2 -> {
-                System.out.println("Enter Age: ");
-                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 5, DatabaseName);
+                System.out.println("Enter New Address: ");
+                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 6, DatabaseName);
             }
             case 3 -> {
                 System.out.println("Enter  if you require NeedSpecialNeed: true or false: ");
-                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 6, DatabaseName);
+                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 7, DatabaseName);
             }
             case 4 -> {
                 System.out.println("Enter  the TypeOfTreatment: ");
-                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 7, DatabaseName);
+                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 8, DatabaseName);
+            }
+
+            case 5-> {
+                System.out.println("Enter new  PhoneNumber: ");
+                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 9, DatabaseName);
+            }
+            case 6-> {
+                System.out.println("Enter  the Email: ");
+                implement.updatePatient(idToUpdate, updateOptions[updateOption], myInput.next(), 10, DatabaseName);
             }
             default -> System.out.println("ERROR!");
         }

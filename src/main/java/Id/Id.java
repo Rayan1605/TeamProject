@@ -4,7 +4,6 @@ import Dbconnection.DatabaseConnections;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Id {
@@ -25,7 +24,7 @@ public class Id {
             Statement statement2 = con.createStatement();
             ResultSet result = statement2.executeQuery(query);
             while (result.next()) {
-                this.id.add(result.getInt("ID"));
+                this.id.add(result.getInt("Id"));
             }
          }  catch (SQLException e) {
             e.printStackTrace();
@@ -121,6 +120,7 @@ public class Id {
                 for (int i = 0; i < this.id.size(); i++) {
                     if (this.id.get(i) == identity) {
                         this.id.remove(i);
+                        DeleteTheId(identity);
                         return true;
                     }
                 }

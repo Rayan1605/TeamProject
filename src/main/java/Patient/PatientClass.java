@@ -4,13 +4,56 @@ import Id.Id;
 
 public class PatientClass extends Id {
     private int ID;
-    private String name;
+    private String Firstname;
     private String dateOfBirthday;
     private String dateOfTreatment;
 
-    private int age;
+    private String address;
     private boolean needspecialNeeds;
     private String typeOfTreatment;
+    private int phoneNumber;
+    private String email;
+    private String LastName;
+
+    @Override
+    public String toString() {
+        return "PatientClass{" +
+                "ID=" + ID +
+                ", name='" + Firstname + '\'' +
+                ", dateOfBirthday='" + dateOfBirthday + '\'' +
+                ", dateOfTreatment='" + dateOfTreatment + '\'' +
+                ", address='" + address + '\'' +
+                ", needspecialNeeds=" + needspecialNeeds +
+                ", typeOfTreatment='" + typeOfTreatment + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", email='" + email + '\'' +
+                ", LastName='" + LastName + '\'' +
+                '}';
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String lastName) {
+        LastName = lastName;
+    }
 
     public PatientClass() {
 
@@ -32,12 +75,12 @@ public class PatientClass extends Id {
         this.ID = ID;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return Firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String name) {
+        this.Firstname = name;
     }
 
     public String getDateOfBirthday() {
@@ -56,12 +99,12 @@ public class PatientClass extends Id {
         this.dateOfTreatment = dateOfTreatment;
     }
 
-    public int getAge() {
-        return age;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public boolean getSpecialNeeds() {
@@ -81,15 +124,4 @@ public class PatientClass extends Id {
     }
 
 
-    @Override
-    public String toString() {
-        return "Patient" +
-                "ID=" + ID +
-                ", name='" + name + '\'' +
-                ", dateOfBirthday='" + dateOfBirthday + '\'' +
-                ", dateOfTreatment='" + dateOfTreatment + '\'' +
-                ", age=" + age +
-                ", specialNeeds=" + needspecialNeeds +
-                ", typeOfTreatment='" + typeOfTreatment + '\'';
-    }
 }

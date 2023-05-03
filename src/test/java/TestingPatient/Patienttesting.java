@@ -9,18 +9,23 @@ public class Patienttesting {
 
         PatientClass patient = new PatientClass();
         patient.setID(1);
-        patient.setName("John");
+        patient.setFirstname("John");
+        patient.setEmail("John@gmail.com");
+        patient.setLastName("Smith");
+        patient.setPhoneNumber(123456789);
+        patient.setAddress("PoliceStation");
+
         patient.setDateOfBirthday("01/01/2000");
         patient.setDateOfTreatment("01/01/2020");
-        patient.setAge(20);
+        patient.setAddress("LeasNaCoille");
         patient.setSpecialNeeds(true);
         patient.setTypeOfTreatment("Filling");
 
         assertEquals(1, patient.getID());
-        assertEquals("John", patient.getName());
+        assertEquals("John", patient.getFirstname());
         assertEquals("01/01/2000", patient.getDateOfBirthday());
         assertEquals("01/01/2020", patient.getDateOfTreatment());
-        assertEquals(20, patient.getAge());
+        assertEquals("LeasNaCoille", patient.getAddress());
         assertEquals(true, patient.getSpecialNeeds());
         assertEquals("Filling", patient.getTypeOfTreatment());
 
