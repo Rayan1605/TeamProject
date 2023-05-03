@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="77a66cb3-3197-4346-a792-5048fe32fb53" name="Changes" comment="Refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBaseImplement/DataBaseCrudOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBaseImplement/DataBaseCrudOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBaseImplement/DatabaseInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBaseImplement/DatabaseInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestingDbConnection/TestingtheConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestingDbConnection/TestingtheConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -366,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683100172315</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Refactoring">
+      <created>1683103002653</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683103002653</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
