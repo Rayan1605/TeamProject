@@ -61,7 +61,8 @@ public class DataBaseCrudOperation extends Id implements DatabaseInterface  {
         }
     }
 
-    private PatientClass ImportPatient(int id) {
+    @Override
+    public PatientClass ImportPatient(int id) {
         Scanner myinput = new Scanner(System.in);
         System.out.println("Please enter the database name in which the patient is stored");
         String[] tables = {"orthodontistclinic", "dentaldepartment"};
