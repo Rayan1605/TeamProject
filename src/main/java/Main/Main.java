@@ -33,8 +33,9 @@ public class Main {
                 case 3 -> showPatientById();
                 case 4 -> updatePatient();
                 case 5 -> deletePatient();
-                case 6 -> main(args);
-                case 7 -> {
+                case 6-> importPatient();
+                case 7 -> main(args);
+                case 8 -> {
                     System.out.println("Thank you for using the application\n");
                     System.out.println("The application will now close\n");
                     exitApplicaton = true;
@@ -46,7 +47,13 @@ public class Main {
 
     }
 
-   public static void DelayTimer  (int num){
+    private static void importPatient() {
+        System.out.println("What the id of the person you wish to import");
+       PatientClass patient = implement.ImportPatient(myInput.nextInt());
+       implement.createPatient(patient,DatabaseName);
+    }
+
+    public static void DelayTimer  (int num){
 
        try {
            Thread.sleep(num);
@@ -187,9 +194,11 @@ public class Main {
         DelayTimer(600);
         System.out.println("5. Delete Patient\n");
         DelayTimer(600);
-        System.out.println("6. Change Database\n");
+        System.out.println("6. Import Patient\n");
         DelayTimer(600);
-        System.out.println("7. Exit Application\n");
+        System.out.println("7. Change Database\n");
+        DelayTimer(600);
+        System.out.println("8. Exit Application \n");
         DelayTimer(600);
         System.out.println(" Please enter your choice below\n");
         System.out.println("Enter Here -> ");

@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77a66cb3-3197-4346-a792-5048fe32fb53" name="Changes" comment="AddingTheImportFunction">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_05_2023_14_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_05_2023_14_59__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2023_15_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2023_15_00__Changes_.xml" afterDir="false" />
+    <list default="true" id="77a66cb3-3197-4346-a792-5048fe32fb53" name="Changes" comment="Refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DataBaseImplement/DataBaseCrudOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBaseImplement/DataBaseCrudOperation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DataBaseImplement/DatabaseInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBaseImplement/DatabaseInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Id/Id.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Id/Id.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Patient/PatientClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Patient/PatientClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestingPatient/Patienttesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestingPatient/Patienttesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestingDbConnection/TestingtheConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestingDbConnection/TestingtheConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +65,7 @@
       <recent name="OrthodontistClinic" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.TestingtheConnection (1)">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
       <module name="TeamProject" />
@@ -148,6 +144,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestingtheConnection (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TeamProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestingDbConnection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestingDbConnection" />
+      <option name="MAIN_CLASS_NAME" value="TestingDbConnection.TestingtheConnection" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestingtheConnection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JdbcProjectforschool" />
       <extension name="coverage">
@@ -212,38 +223,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestingtheConnection.testCreateConnectiontoOrtho" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JdbcProjectforschool" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="TestingDbConnection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="TestingDbConnection" />
-      <option name="MAIN_CLASS_NAME" value="TestingDbConnection.TestingtheConnection" />
-      <option name="METHOD_NAME" value="testCreateConnectiontoOrtho" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Main.Main" />
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.Patienttesting.Set (1)" />
+      <item itemvalue="JUnit.TestingtheConnection (1)" />
       <item itemvalue="JUnit.TestingtheConnection.testCreateConnectiontoOrtho (1)" />
-      <item itemvalue="JUnit.TestingtheConnection.testCreateConnectiontoOrtho" />
       <item itemvalue="JUnit.TestingConnection.testCreateConnection" />
       <item itemvalue="JUnit.TestingtheConnection" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestingtheConnection (1)" />
         <item itemvalue="JUnit.Patienttesting.Set (1)" />
         <item itemvalue="JUnit.TestingtheConnection.testCreateConnectiontoOrtho (1)" />
         <item itemvalue="JUnit.TestingtheConnection" />
         <item itemvalue="JUnit.TestingConnection.testCreateConnection" />
-        <item itemvalue="JUnit.TestingtheConnection.testCreateConnectiontoOrtho" />
       </list>
     </recent_temporary>
   </component>
@@ -364,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682829157145</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Refactoring">
+      <created>1683100172315</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683100172315</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,6 +397,7 @@
     <MESSAGE value="Fixing up the Project" />
     <MESSAGE value="Fixing up some bits of the  Project" />
     <MESSAGE value="Added the SetPassword also the Password classes did not work so I had to do some fixing &#10;&#10;Also Create Patient did not work so had to fix the bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the SetPassword also the Password classes did not work so I had to do some fixing &#10;&#10;Also Create Patient did not work so had to fix the bugs" />
+    <MESSAGE value="Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
   </component>
 </project>
