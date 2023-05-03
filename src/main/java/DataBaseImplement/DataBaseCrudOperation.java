@@ -36,16 +36,19 @@ public class DataBaseCrudOperation extends Id implements DatabaseInterface  {
            }while (choice != 1);
         }
         con= DatabaseConnections.createconnectiontoTeethTreatment();
-        String query="INSERT INTO " + DatabaseName + " VALUES (?,?,?,?,?,?,?)";
+        String query="INSERT INTO " + DatabaseName + " VALUES (?,?,?,?,?,?,?,?,?,?)";
         try{
             PreparedStatement pst=con.prepareStatement(query);
             pst.setInt( 1, patient.getID());
-            pst.setString( 2, patient.getName());
-            pst.setString( 3, patient.getDateOfBirthday());
-            pst.setString( 4, patient.getDateOfTreatment());
-            pst.setInt( 5, patient.getAge());
-            pst.setBoolean( 6, patient.isNeedspecialNeeds());
-            pst.setString( 7, patient.getTypeOfTreatment());
+            pst.setString( 2, patient.getFirstname());
+            pst.setString( 3, patient.getLastName());
+            pst.setString( 4, patient.getDateOfBirthday());
+            pst.setString( 5, patient.getDateOfTreatment());
+            pst.setString( 6, patient.getAddress());
+            pst.setBoolean( 7, patient.isNeedspecialNeeds());
+            pst.setString( 8, patient.getTypeOfTreatment());
+            pst.setInt( 9, patient.getPhoneNumber());
+            pst.setString( 10, patient.getEmail());
               int cnt = pst.executeUpdate();
               if(cnt!=0){
                   return true;
@@ -57,14 +60,16 @@ public class DataBaseCrudOperation extends Id implements DatabaseInterface  {
             return false;
         }
     }
+
     private PatientClass ImportPatient(int id) {
         Scanner myinput = new Scanner(System.in);
         System.out.println("Please enter the database name in which the patient is stored");
         String[] tables = {"orthodontistclinic", "dentaldepartment"};
         for (String names: tables) {
-            System.out.println("the names are " + names);
+            System.out.println("the names are " + names + "\n");
         }
-        String DatabaseName = myinput.nextLine();
+        System.out.println("Enter here ->  \n");
+        String DatabaseName = myinput.next();
         con = DatabaseConnections.createconnectiontoTeethTreatment();
         for (String table: tables) {
             if (table.equals(DatabaseName)) {
@@ -77,10 +82,13 @@ public class DataBaseCrudOperation extends Id implements DatabaseInterface  {
                     if (result.next()) {
                         PatientClass patientClass = new PatientClass();
                         patientClass.setID(result.getInt(1));
-                        patientClass.setName(result.getString(2));
-                        patientClass.setDateOfBirthday(result.getString(3));
-                        patientClass.setAge(result.getInt(5));
-                        patientClass.setNeedspecialNeeds(result.getBoolean(6));
+                        patientClass.setFirstname(result.getString(2));
+                        patientClass.setLastName(result.getString(3));
+                        patientClass.setDateOfBirthday(result.getString(4));
+                        patientClass.setAddress(result.getString(6));
+                        patientClass.setNeedspecialNeeds(result.getBoolean(7));
+                        patientClass.setPhoneNumber(result.getInt(9));
+                        patientClass.setEmail(result.getString(10));
                         return GetRemainingDetail(patientClass);
                     }else{
                         System.out.println("The patient is not in the database");
@@ -115,23 +123,27 @@ public class DataBaseCrudOperation extends Id implements DatabaseInterface  {
         String query="SELECT * FROM " + DatabaseName;
         System.out.println("Patient details: ");
 
-        System.out.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
-                "ID|", "Name|", "DateofBirth|", "DateofTreatment|", "Age|"
-                , "NeedsSpecialNeeds|", "TypeOfTreatment|");
+        System.out.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
+                "ID|", "FirstName","LastName|", "DateofBirth|", "DateofTreatment|", "Address|"
+                , "NeedsSpecialNeeds|", "TypeOfTreatment|", "PhoneNumber|", "Email|");
         System.out.println("------------------------------------------------------------------------------------------------------------------\n");
 
         try{
             Statement stm2 =con.createStatement();
             ResultSet result= stm2.executeQuery(query);
             while(result.next()){
-                System.out.format("%d|\t%s|\t%s|\t%s|\t%d|\t%b|\t%s|\n",
+                System.out.format("%d\t%s\t%s\t%s\t%s\t%s\t%b\t%s\t%d\t%s\n\n",
                         result.getInt(1),
                         result.getString(2),
                         result.getString(3),
                         result.getString(4),
-                        result.getInt(5),
-                        result.getBoolean(6),
-                        result.getString(7));
+                        result.getString(5),
+                        result.getString(6),
+                        result.getBoolean(7),
+                        result.getString(8),
+                        result.getInt(9),
+                        result.getString(10));
+
                 System.out.println("------------------------------------------------------------------------------------------------------------------\n");
 
             }
@@ -144,6 +156,9 @@ public class DataBaseCrudOperation extends Id implements DatabaseInterface  {
 
     @Override
     public void showPatientBasedonID(int id, String DatabaseName) {
+        System.out.format("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
+                "ID|", "FirstName","LastName|", "DateofBirth|", "DateofTreatment|", "Address|"
+                , "NeedsSpecialNeeds|", "TypeOfTreatment|", "PhoneNumber|", "Email|");
         System.out.println("------------------------------------------------------------------------------------------------------------------\n");
         con = DatabaseConnections.createconnectiontoTeethTreatment();
         String query = "SELECT * FROM " + DatabaseName + " where id = ?";
@@ -152,15 +167,20 @@ public class DataBaseCrudOperation extends Id implements DatabaseInterface  {
             statement.setInt(1, id);
             ResultSet result = statement.executeQuery();
             if (result.next()) {
-                System.out.format("%d|\t%s|\t%s|\t%s|\t%d|\t%b|\t%s|\n",
+                System.out.format("%d\t%s\t%s\t%s\t%s\t%s\t%b\t%s\t%d\t%s\n\n",
                         result.getInt(1),
                         result.getString(2),
                         result.getString(3),
                         result.getString(4),
-                        result.getInt(5),
-                        result.getBoolean(6),
-                        result.getString(7));
+                        result.getString(5),
+                        result.getString(6),
+                        result.getBoolean(7),
+                        result.getString(8),
+                        result.getInt(9),
+                        result.getString(10));
+
                 System.out.println("------------------------------------------------------------------------------------------------------------------\n");
+
             } else {
                 System.out.println("The id is not there");
             }
@@ -175,17 +195,16 @@ public class DataBaseCrudOperation extends Id implements DatabaseInterface  {
         int count;
         con = DatabaseConnections.createconnectiontoTeethTreatment();
         String query = "UPDATE " + DatabaseName + " SET " + itemtoUpdate + " = ? WHERE id = ?";
-        itemtoUpdate.toLowerCase();
         PreparedStatement statement;
 
             try {
                  statement = con.prepareStatement(query);
-                if (Objects.equals(itemtoUpdate, "age")) {
+                if (Objects.equals(itemtoUpdate, "phonenumber")) {
                     for (Character c : newValue.toCharArray()) { // making sure the values are
                         //Number using ascii table
-                        if (c >= 48 && c <= 57) {
-                        } else {
-                            return false;
+                        if (c < 48 || c > 57) {
+                            System.out.println("Please enter a number");
+                           return false;
                         }
                     }
                     statement.setInt(1, Integer.parseInt(newValue));
@@ -193,7 +212,7 @@ public class DataBaseCrudOperation extends Id implements DatabaseInterface  {
                   count =  statement.executeUpdate();
 
                 } else if (Objects.equals(itemtoUpdate, "needspecialNeeds")) {
-                    if (itemtoUpdate == "true" || itemtoUpdate == "false") {
+                    if (itemtoUpdate.equals("true") || itemtoUpdate.equals("false")) {
                         statement.setBoolean(1, Boolean.parseBoolean(newValue));
                         statement.setInt(2, id);
                        count= statement.executeUpdate();
